@@ -1,14 +1,20 @@
+#!/usr/bin/env python
+
 from argh import *
 
 
 from itertools import combinations_with_replacement
 import sys
 import pickle
+import csv
 
+from StringIO import StringIO
 
 from collections import namedtuple
 
 UserSpec = namedtuple('UserSpec', ['sep', 'name', 'phone', 'line'])
+
+PHONE = '7640'
 
 def format_sep(mac):
     mac_str = ''.join(['%02X' % b for b in mac])
@@ -34,17 +40,30 @@ def line_gen():
 
 
 @arg('count', type=int)
-def generate_macs(args):
-    macs = mac_gen()
-    phone = '7640'
-    users = [UserSpec(format_sep(mac), user, phone, line)._asdict() for i, mac, user, line in zip(range(args.count), mac_gen(), user_gen(), line_gen())]
-    config = {'users': users}
-    pickle.dump(config, sys.stdout)
+@arg('--format', default='pickle')
+def generate(args):
+    users = [UserSpec(format_sep(mac), user, PHONE, line)._asdict() for i, mac, user, line in zip(range(args.count), mac_gen(), user_gen(), line_gen())]
+    sys.stdout.write(dump_format(users, args.format))
 
+@arg('--format', default='pickle')
+def transform(args):
+    reader = csv.reader(sys.stdin)
+    users = [UserSpec(*row)._asdict() for row in reader]
+    sys.stdout.write(dump_format(users, args.format))
 
+def dump_format(users, format):
+    if format == 'pickle':
+        data = pickle.dumps({'users': users})
+    else:
+        buf = StringIO()
+        writer = csv.writer(buf)
+        writer.writerows([user.values() for user in users])
+        data = buf.getvalue()
+    return data
+    
 def main():
     p = ArghParser()
-    p.add_commands([generate_macs])
+    p.add_commands([generate, transform])
     p.dispatch()
     device = sys.argv[1]
 
