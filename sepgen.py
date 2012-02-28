@@ -1,7 +1,5 @@
 #!/usr/bin/env python
-
 from argh import *
-
 
 from itertools import combinations_with_replacement
 import sys

@@ -1,0 +1,15 @@
+Generate 5 users
+
+./sepgen.py generate 5 --format csv > users.csv
+
+Pickle CSV users
+
+./sepgen.py transform > dist/users.pickle < users.csv
+
+Fill a template
+
+cheetah fill --pickle dist/users.pickle --stdout templates/sccp_phones_asterisk.tmpl
+
+Reload freeswitch - reloadxml
+Reload asterisk - sccp reload
+
