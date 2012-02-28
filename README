@@ -1,3 +1,8 @@
+Dependencies
+
+sudo apt-get install python-cheetah python-pip
+sudo setup.py install
+
 How to generate configuration for your phone:
 
 git clone https://mwicat@github.com/mwicat/sepconf.git
