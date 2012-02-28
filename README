@@ -1,3 +1,17 @@
+How to generate configuration for your phone:
+
+git clone https://mwicat@github.com/mwicat/sepconf.git
+edit custom.csv to match your phone
+
+run:
+
+sudo make generate install_freeswitch
+
+or
+
+sudo make generate install_asterisk
+
+
 Generate 5 users
 
 ./sepgen.py generate 5 --format csv > users.csv
