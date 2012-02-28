@@ -1,15 +1,26 @@
-Download
-
-git clone git://github.com/mwicat/sepconf.git
-
 Dependencies
 
 sudo apt-get install python-cheetah python-pip
-sudo setup.py install
+
+Install
+
+git clone git://github.com/mwicat/sepconf.git
+cd sepconf
+sudo python setup.py install
 
 How to generate configuration for your phone:
 
 edit custom.csv to match your phone
+
+Format:
+
+SEP_ID,YOUR_NAME,PHONE_VERSION,EXTENSION
+
+EXTENSION is a telephone number e.g. 999
+
+Example:
+
+SEP0016464292A0,John Knot,7960,1901
 
 run:
 
