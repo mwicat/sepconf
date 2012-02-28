@@ -1,3 +1,7 @@
+Download
+
+git clone git://github.com/mwicat/sepconf.git
+
 Dependencies
 
 sudo apt-get install python-cheetah python-pip
@@ -5,7 +9,6 @@ sudo setup.py install
 
 How to generate configuration for your phone:
 
-git clone https://mwicat@github.com/mwicat/sepconf.git
 edit custom.csv to match your phone
 
 run:
