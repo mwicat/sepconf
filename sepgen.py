@@ -12,7 +12,7 @@ from collections import namedtuple
 
 UserSpec = namedtuple('UserSpec', ['sep', 'name', 'phone', 'line'])
 
-PHONE = '7640'
+PHONE = '7940'
 
 def format_sep(mac):
     mac_str = ''.join(['%02X' % b for b in mac])
