@@ -1,0 +1,11 @@
+{% for user in users %}
+[{{ user.sep }}]({{ user.phone }})
+description = {{ user.name }} 
+button = line, {{ user.line }}
+
+[{{ user.line }}](defaultline)
+label = {{ user.line }}
+cid_name = {{ user.name }}
+cid_num = {{ user.line }}
+
+{% endfor %}

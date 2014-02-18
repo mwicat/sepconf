@@ -18,11 +18,11 @@ setup(
     license = "GPLv3",
     packages=PACKAGES,
     py_modules=MODULES,
-    install_requires = ['argparse', 'argh'],
-    long_description=read('README'),
+    install_requires = ['argh', 'Jinja2'],
+    long_description=read('README.rst'),
     entry_points = {
         'console_scripts': [
-            'sepgen = sepgen:main',
+            'sepconf = sepconf.main:main',
             ]
         },
 
