@@ -5,15 +5,15 @@ Sepconf is little script that can help you if you want to automatically generate
 a PBX configuration file for a number of devices e.g. for testing purposes.
 
 Currently supported configuration formats are Freeswitch and Asterisk, so you can feed the
-script with either freeswitch.tmpl or asterisk.tmpl. Template will be first searched in your
-current working directory and then in package's data/templates directory.
+script with either `freeswitch.tmpl` or `asterisk.tmpl`. Template will be first searched in your
+current working directory and then in package's `data/templates` directory.
 
 Installation
 ------------
 
 To install using `pip`::
 
-	pip install git+https://github.com/mwicat/sepconf.git#egg=sepconf
+	pip install -e git+https://github.com/mwicat/sepconf.git#egg=sepconf
 
 Getting started
 ---------------
