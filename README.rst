@@ -13,7 +13,7 @@ Installation
 
 To install using `pip`::
 
-	pip install -e git+https://github.com/mwicat/sepconf.git#egg=sepconf
+	sudo pip install -e git+https://github.com/mwicat/sepconf.git#egg=sepconf
 
 Getting started
 ---------------
